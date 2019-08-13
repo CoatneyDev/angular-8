@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { environment } from '../environments/environment';
+import { application } from 'src/app/configs/app.config';
 import { AuthenticationService } from './modules/authentication/authentication.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { AuthenticationService } from './modules/authentication/authentication.s
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = environment.title;
+  title = application.title;
 
   constructor(private authService: AuthenticationService) {
     this.authService.initAuthListener();
