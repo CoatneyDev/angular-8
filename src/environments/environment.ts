@@ -3,7 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  title: "CoatneyDEV Angular 8 Skeleton",
+  firebase: {
+    apiKey: "AIzaSyDlnd-K7PChJ8LBer0QsIvkKHXMAgJ2cJE",
+    authDomain: "sunspot-1268f.firebaseapp.com",
+    databaseURL: "https://sunspot-1268f.firebaseio.com",
+    projectId: "sunspot-1268f",
+    storageBucket: "sunspot-1268f.appspot.com",
+    messagingSenderId: "835812581177",
+    appId: "1:835812581177:web:3a8f361c980302fe"
+
+  }
 };
 
 /*

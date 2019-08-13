@@ -1,0 +1,13 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation" [opened]="isOpened" class="side-nav">
+        <coatneydev-sidenav (toggleSideNav)="onToggleSidenav($event)">
+        </coatneydev-sidenav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <coatneydev-toolbar (toggleSideNav)="onToggleSidenav($event)">
+        </coatneydev-toolbar>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+    <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.gt-xs>
+
+        <button mat-icon-button (click)="sidenavToggle($event)">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <figure>
+        <a class="nav-link" routerLink="/">
+            <span class="logo">LOGO</span>
+        </a>
+    </figure>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+
+        <ul fxLayout fxLayoutGap="10px" class="navigation__list">
+
+            <li *ngIf="!(isAuth$ | async)" class="navigation__list--item"><a routerLink="/login"
+                    class="nav-link">Login</a></li>
+            <li *ngIf="!(isAuth$ | async)" class="navigation__list--item"><a routerLink="/signup"
+                    class="nav-link">Signup</a></li>
+            <li *ngIf="isAuth$ | async" class="navigation__list--item"><a routerLink="/dashboard/{{username}}"
+                    style="cursor:pointer;" class="nav-link">Welcome, {{username}}</a>
+            </li>
+            <li *ngIf="isAuth$ | async" class="navigation__list--item"><a (click)="onLogout($event)"
+                    style="cursor:pointer;" class="nav-link">Logout</a>
+            </li>
+        </ul>
+
+    </div>
+</mat-toolbar>

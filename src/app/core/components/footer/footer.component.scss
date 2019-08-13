@@ -1,0 +1,85 @@
+
+@mixin absCenter {
+    position: absolute;
+   top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+hr {
+    border: 3px solid teal;
+    width: 56%;
+    margin: 0;
+    margin-bottom: 1.5rem;
+}
+
+.header {
+font-weight: 600;
+font-size: 32px;
+}
+
+
+.copyright {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2em;
+}
+
+.footer__top-layer{
+    height: 20rem;
+
+}
+
+.footer__middle-layer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+  background-color: #55c57a;
+   
+
+}
+
+.footer__bottom-layer {
+    position: relative;
+    background-color: teal;
+    height: 5rem;
+    
+
+}
+
+.footer__left-box {
+padding: 5rem;
+}
+
+.footer__right-box {
+    display: flex;
+    flex-direction: row;
+
+    &--item {
+padding: 5rem;
+    }
+}
+
+
+.footer__social {
+    display: flex;
+    flex-direction: row;
+   @include absCenter;
+    
+    &--icon {
+        width: 32px;
+        height:32px;
+      margin-left: 1rem;
+       
+    }
+}
+
+.written-by-link {
+    color: teal;
+}
+
+ul li {
+    cursor: pointer;
+}

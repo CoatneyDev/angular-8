@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@charset "utf-8";
+
+
+:root {
+  --color-white: white;
+  --color-primary: #55c57a;
+  --color-secondary: #eb2f64;
+
+  --toolbar-icon-color: var(--color-white);
+
+  --sidenav-width: 300px;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    height: 100%;
+}
+
+::selection {
+    background-color: var(--color-primary);
+    color:  var(--color-white);
+}

@@ -1,27 +1,32 @@
-# Skeleton
+# Angular 8 Skeleton
+
+By Matthew Coatney (CoatneyDEV)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.6.
 
-## Development server
+Skeleton is an Angular 8 template which includes implementations of these technologies:
++ [AngularFire](https://github.com/angular/angularfire2)
++ [NGRX](https://ngrx.io/)
++ [AngularMaterial](https://material.angular.io/)
++ [Bulma](https://bulma.io/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Getting Started
+Start by modifying the environment.example.ts file with project specific info, then place it in an environments folder. Next, complete the project configuration in app.config
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
++ [Environment](src\environment.example.ts)
++ [Application](src\app\configs\app.config.ts)
 
-## Build
+## Custom Theming
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+A custom theme [Watermelon](src\assets\themes\watermelon.scss) is provided by default including two custom color swatches: Emerald and Coral.
+Angular Material and Bulma are integrated together for a polished non-cookie cutter look.
 
-## Running unit tests
+## User Accounts
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Basic authentication and user account creation is implemented through Firestore (via Firebase/AngularFire) and includes scaffolding for user profiles and a member dashboard system.
 
-## Running end-to-end tests
+More information can be found at: https://firebase.google.com/docs/auth/web/manage-users
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
