@@ -14,6 +14,9 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     CoreModule
   ],
+  exports: [
+    CoreModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

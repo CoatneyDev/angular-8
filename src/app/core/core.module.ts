@@ -10,6 +10,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore/firestore.module
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+
+
+import { PipesModule } from './pipes/pipes.module';
+
 import { DatabaseAdapterService } from './services/database-adapter.service';
 import { NgMaterialModule } from './presentation/ng-material.module';
 import { HeaderComponent } from './components/header/header.component';
@@ -26,6 +30,8 @@ import { ProfileService } from '../modules/profile/profile.service';
 import { reducers } from '../app.reducer';
 import { environment } from '../../environments/environment';
 
+
+
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, ToolbarComponent, SidenavComponent],
   imports: [
@@ -39,7 +45,8 @@ import { environment } from '../../environments/environment';
     StoreModule.forRoot(reducers),
     NgMaterialModule,
     AuthenticationModule,
-    ProfileModule
+    ProfileModule,
+    PipesModule
 
   ],
   exports: [
@@ -55,7 +62,8 @@ import { environment } from '../../environments/environment';
     NavigationComponent,
     SidenavComponent,
     AuthenticationModule,
-    ProfileModule
+    ProfileModule,
+    PipesModule
   ],
   providers: [AuthenticationService, ProfileService, DatabaseAdapterService, UiService, AngularFirestore]
 })
