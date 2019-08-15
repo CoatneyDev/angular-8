@@ -55,7 +55,6 @@ export class AuthenticationService {
       this.store.dispatch(new UI.StartLoading());
 
       if (result.user.emailVerified !== true) {
-
         this.sendVerificationMail();
         this.uiService.showSnackBar(this.validateMessage, null, 3000);
       }
@@ -76,15 +75,11 @@ export class AuthenticationService {
       .then(result => {
 
         if (result.user.emailVerified !== true) {
-
           this.sendVerificationMail();
           this.uiService.showSnackBar(this.validateMessage, null, 3000);
         }
         else {
-          console.log("login verified")
-          console.log("on my way to " + this.route.url)
           this.route.navigate(['/']);
-
           this.store.dispatch(new UI.StopLoading());
         }
       })
@@ -104,7 +99,7 @@ export class AuthenticationService {
   }
 
   sendVerificationMail() {
-    console.log("sendVerification")
+
     return this.afAuth.auth.currentUser.sendEmailVerification()
       .then(() => {
         this.declineEntry();

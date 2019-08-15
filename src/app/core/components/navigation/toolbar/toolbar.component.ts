@@ -32,7 +32,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   assignUserName() {
-    console.log("my name is " + this.profile.name);
+    //console.log("my name is " + this.profile.name);
     this.username = this.profile.name ? this.profile.name : "Guest";
   }
 
