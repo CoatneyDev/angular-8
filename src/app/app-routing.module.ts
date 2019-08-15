@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', loadChildren: './modules/home/home.module#HomeModule' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'dashboard', loadChildren: './modules/dashboard/dashboard.module#DashboardModule' },
+  { path: 'dashboard', loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule) },
   { path: 'legal', loadChildren: './modules/legal/legal.module#LegalModule' },
   { path: 'profiles/:id', loadChildren: './modules/profile/profile.module#ProfileModule' },
   { path: 'profiles', loadChildren: './modules/profile/profile.module#ProfileModule' },

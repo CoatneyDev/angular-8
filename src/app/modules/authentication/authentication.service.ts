@@ -20,6 +20,7 @@ export class AuthenticationService {
   isAuthenticated: boolean = false;
   authChange = new Subject<boolean>();
   redirectTo: string = null;
+  validateMessage: string = 'Please validate your email address. Kindly check your inbox.';
 
   constructor(
     private route: Router,
@@ -31,9 +32,10 @@ export class AuthenticationService {
   ) { }
 
   initAuthListener() {
+
     this.afAuth.authState.subscribe(user => {
 
-      if (user) {
+      if (user && user.emailVerified) {
         this.store.dispatch(new AUTH.SetAuthenticated());
         this.route.navigate(['/dashboard']);
         this.profile.initProfile();
@@ -44,7 +46,6 @@ export class AuthenticationService {
   }
 
   registerUser(authData: AuthDataInterface) {
-
     this.store.dispatch(new UI.StartLoading());
 
     this.afAuth.auth.createUserWithEmailAndPassword(
@@ -52,6 +53,12 @@ export class AuthenticationService {
       authData.password
     ).then(result => {
       this.store.dispatch(new UI.StartLoading());
+
+      if (result.user.emailVerified !== true) {
+
+        this.sendVerificationMail();
+        this.uiService.showSnackBar(this.validateMessage, null, 3000);
+      }
     })
       .catch(err => {
         this.store.dispatch(new UI.StartLoading());
@@ -67,7 +74,19 @@ export class AuthenticationService {
       authData.email,
       authData.password)
       .then(result => {
-        this.store.dispatch(new UI.StopLoading());
+
+        if (result.user.emailVerified !== true) {
+
+          this.sendVerificationMail();
+          this.uiService.showSnackBar(this.validateMessage, null, 3000);
+        }
+        else {
+          console.log("login verified")
+          console.log("on my way to " + this.route.url)
+          this.route.navigate(['/']);
+
+          this.store.dispatch(new UI.StopLoading());
+        }
       })
       .catch(err => {
         this.store.dispatch(new UI.StopLoading());
@@ -76,10 +95,29 @@ export class AuthenticationService {
   }
 
   logout() {
+    try {
+      this.declineEntry();
+      this.uiService.showSnackBar("You have successfully logged out!", null, 5000);
+    } catch (err) {
+      this.uiService.showSnackBar(err.message, null, 3000);
+    }
+  }
+
+  sendVerificationMail() {
+    console.log("sendVerification")
+    return this.afAuth.auth.currentUser.sendEmailVerification()
+      .then(() => {
+        this.declineEntry();
+      }).catch(err => {
+        this.declineEntry();
+        this.uiService.showSnackBar(err.message, null, 3000);
+      });
+  }
+
+  declineEntry() {
     this.store.dispatch(new UI.StopLoading());
-    this.afAuth.auth.signOut();
     this.route.navigate(['/login']);
-    this.uiService.showSnackBar("You have successfully logged out!", null, 5000);
+    this.afAuth.auth.signOut();
   }
 
   isAuth() {

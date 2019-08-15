@@ -9,6 +9,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
   imports: [
     CommonModule,
     DashboardRoutingModule
+  ],
+  exports: [
+    DashboardRoutingModule
   ]
 })
 export class DashboardModule { }
