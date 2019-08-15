@@ -11,7 +11,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 import { PipesModule } from './pipes/pipes.module';
 import { reducers } from '../app.reducer';
-
 import { NgMaterialModule } from './presentation/ng-material.module';
 import { AuthenticationModule } from '../modules/authentication/authentication.module';
 import { AuthenticationService } from '../modules/authentication/authentication.service';
@@ -46,6 +45,7 @@ import { application } from '../configs/app.config';
 
   ],
   exports: [
+    CommonModule,
     NgMaterialModule,
     RouterModule,
     FormsModule,
@@ -61,6 +61,7 @@ import { application } from '../configs/app.config';
     ProfileModule,
     PipesModule
   ],
-  providers: [AuthenticationService, ProfileService, DatabaseAdapterService, UiService, AngularFirestore]
+  providers: []
+  // providedIn root = AuthenticationService, ProfileService, DatabaseAdapterService, UiService, AngularFirestore
 })
 export class CoreModule { }
