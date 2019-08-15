@@ -1,7 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TermsComponent } from './pages/terms/terms.component';
+import { FaqComponent } from './pages/faq/faq.component';
+import { PolicyComponent } from './pages/policy/policy.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: TermsComponent },
+  { path: 'terms', component: TermsComponent },
+  { path: 'policy', component: PolicyComponent },
+  { path: 'faq', component: FaqComponent },
+  { path: '**', redirectTo: '' },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

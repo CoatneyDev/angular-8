@@ -11,7 +11,6 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'dashboard', loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule) },
   { path: 'legal', loadChildren: () => import('./modules/legal/legal.module').then(m => m.LegalModule) },
-  { path: 'profiles/:id', loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule) },
   { path: 'profiles', loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule) },
   { path: 'team', loadChildren: () => import('./modules/team/team.module').then(m => m.TeamModule) },
   { path: '**', redirectTo: 'home' },
