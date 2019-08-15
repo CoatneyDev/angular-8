@@ -20,8 +20,18 @@ export class ProfileService {
 
   initProfile() {
     var user = this.afAuth.auth.currentUser;
+    console.log("init profile");
     if (user != null) {
-
+      console.log("user not null " + user.displayName);
+      if (user.displayName == undefined && user.photoURL == undefined) {
+        console.log("username and photo");
+        this.updateProfile("Member", "https://picsum.photos/200/300");
+      }
+      else if (user.displayName == undefined) {
+        console.log("just username");
+        this.updateProfile("Member");
+      }
+      console.log("assigning profile vars");
       this.name = user.displayName;
       this.email = user.email;
       this.photoUrl = user.photoURL;
@@ -30,6 +40,18 @@ export class ProfileService {
       // this value to authenticate with your backend server, if
       // you have one. Use User.getToken() instead.
     }
+  }
+
+  updateProfile(name: string, photoURL?: string) {
+    console.log("updating profile");
+    var user = this.afAuth.auth.currentUser;
+    user.updateProfile({ displayName: name, photoURL: photoURL })
+      .then(response => {
+        console.log("profile update success");
+      })
+      .catch(err => {
+        console.log("profile error: " + err);
+      });
   }
 
   getProfile() {

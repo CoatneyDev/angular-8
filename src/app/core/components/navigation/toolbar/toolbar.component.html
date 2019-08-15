@@ -19,7 +19,7 @@
             <li *ngIf="!(isAuth$ | async)" class="navigation__list--item"><a routerLink="/signup"
                     class="nav-link">Signup</a></li>
             <li *ngIf="isAuth$ | async" class="navigation__list--item"><a routerLink="/dashboard/{{username}}"
-                    style="cursor:pointer;" class="nav-link">Welcome, {{username}}</a>
+                    style="cursor:pointer;" class="nav-link">Welcome, {{username()}}</a>
             </li>
             <li *ngIf="isAuth$ | async" class="navigation__list--item"><a (click)="onLogout($event)"
                     style="cursor:pointer;" class="nav-link">Logout</a>

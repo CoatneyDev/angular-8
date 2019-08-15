@@ -16,7 +16,7 @@ export class ToolbarComponent implements OnInit {
   @Output() toggleSideNav: EventEmitter<boolean> = new EventEmitter();
   isAuth$: Observable<boolean>;
   sideNavOpen: boolean = false;
-  username: string;
+
 
   constructor(
     private store: Store<fromRoot.State>,
@@ -27,13 +27,10 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit() {
     this.isAuth$ = this.store.select(fromRoot.getIsAuthenticated);
-
-    this.assignUserName();
   }
 
-  assignUserName() {
-    //console.log("my name is " + this.profile.name);
-    this.username = this.profile.name ? this.profile.name : "Guest";
+  username(): string {
+    return this.profile.name;
   }
 
   sidenavToggle(event: Event) {
@@ -45,7 +42,5 @@ export class ToolbarComponent implements OnInit {
   onLogout(event: Event) {
     this.authService.logout();
   }
-
-
 
 }
