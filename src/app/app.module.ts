@@ -7,8 +7,9 @@ import { CoreModule } from './core/core.module';
 import { HomeModule } from './modules/home/home.module';
 
 @NgModule({
+
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserAnimationsModule,

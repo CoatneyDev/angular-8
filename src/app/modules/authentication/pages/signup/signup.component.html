@@ -22,9 +22,11 @@
 
         </mat-form-field>
 
-        <mat-checkbox ngModel name="agree" color="primary" required><span class="checkbox-caption">I Agree to
-                Terms and
-                Conditions.</span></mat-checkbox>
+        <mat-checkbox ngModel name="agree" color="primary" required><span class="checkbox-caption">I Agree to</span>
+
+        </mat-checkbox>
+
+        <coatneydev-dynamic-dialog><a> Terms and Conditions</a>.</coatneydev-dynamic-dialog>
 
         <button *ngIf="!isLoading$" type="submit" mat-raised-button color="primary"
             [disabled]="signupForm.invalid">Submit</button>

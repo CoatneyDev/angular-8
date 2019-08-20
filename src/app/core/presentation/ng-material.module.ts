@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
 import {
   MatButtonModule,
   MatSidenavModule,
@@ -15,18 +14,8 @@ import {
   MatNativeDateModule,
   MatDatepickerModule,
   MatCheckboxModule,
+  MatDialogModule
   /*
- 
-
-
-
-
-
-  
-  
-
-
-
   MatTooltipModule,
   MatOptionModule,
   MatSelectModule
@@ -37,7 +26,6 @@ import {
 @NgModule({
   declarations: [],
   imports: [
-
     CommonModule,
     MatButtonModule,
     MatSidenavModule,
@@ -51,18 +39,9 @@ import {
     MatNativeDateModule,
     MatDatepickerModule,
     MatCheckboxModule,
+    MatDialogModule,
     /*
-
-   
-    
-
-
-
-
-    
-
-
-    MatTooltipModule,
+      MatTooltipModule,
     MatOptionModule,
     MatSelectModule
     */
@@ -80,15 +59,8 @@ import {
     MatNativeDateModule,
     MatDatepickerModule,
     MatCheckboxModule,
+    MatDialogModule,
     /*
-
-
-
-
-
-
-
-
     MatTooltipModule,
     MatOptionModule,
     MatSelectModule

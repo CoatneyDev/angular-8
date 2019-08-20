@@ -11,9 +11,10 @@ import { AuthenticationService } from './modules/authentication/authentication.s
 })
 export class AppComponent {
   title = application.title;
-  cussing = "some bad crap maynard!";
 
   constructor(private authService: AuthenticationService) {
     this.authService.initAuthListener();
   }
+
+
 }

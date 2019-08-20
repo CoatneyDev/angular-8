@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TermsComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit() {
   }
+
 
 }

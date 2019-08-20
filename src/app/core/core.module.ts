@@ -13,6 +13,8 @@ import { PipesModule } from './pipes/pipes.module';
 import { reducers } from '../app.reducer';
 import { NgMaterialModule } from './presentation/ng-material.module';
 import { AuthenticationModule } from '../modules/authentication/authentication.module';
+import { DynamicDialogModule } from '../core/modules/dynamic-dialog.module';
+import { LegalModule } from '../modules/legal/legal.module';
 //import { AuthenticationService } from '../modules/authentication/authentication.service';
 import { ProfileModule } from '../modules/profile/profile.module';
 //import { ProfileService } from '../modules/profile/profile.service';
@@ -24,10 +26,13 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ToolbarComponent } from './components/navigation/toolbar/toolbar.component';
 import { SidenavComponent } from './components/navigation/sidenav/sidenav.component';
 import { environment } from '../../environments/environment';
+
+
 //import { application } from '../configs/app.config';
 
 
 @NgModule({
+
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, ToolbarComponent, SidenavComponent],
   imports: [
     CommonModule,
@@ -41,7 +46,10 @@ import { environment } from '../../environments/environment';
     NgMaterialModule,
     AuthenticationModule,
     ProfileModule,
-    PipesModule
+    PipesModule,
+    DynamicDialogModule,
+    LegalModule
+
 
   ],
   exports: [
@@ -59,7 +67,10 @@ import { environment } from '../../environments/environment';
     SidenavComponent,
     AuthenticationModule,
     ProfileModule,
-    PipesModule
+    PipesModule,
+    DynamicDialogModule,
+    LegalModule
+
   ],
   providers: []
   // providedIn root = AuthenticationService, ProfileService, DatabaseAdapterService, UiService, AngularFirestore

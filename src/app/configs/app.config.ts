@@ -9,6 +9,12 @@ export const application = {
     city: "Mariposa",
     state: "CA",
     zipcode: "95338",
-    country: "USA"
+    country: "USA",
+    legal: {
+        privacyPolicyURL: "src/app/modules/legal/docs/privacy.html",
+        termsConditionsURL: "src/app/modules/legal/docs/terms.html",
+        faqURL: "src/app/modules/legal/docs/faq.html",
+        ReturnPolicyURL: "src/app/modules/legal/docs/return.html"
+    }
 
 }
