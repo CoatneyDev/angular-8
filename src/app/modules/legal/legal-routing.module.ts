@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { TermsComponent } from './pages/terms/terms.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { PolicyComponent } from './pages/policy/policy.component';
+import { CookiesComponent } from './pages/cookies/cookies.component';
 
 const routes: Routes = [
   { path: '', component: TermsComponent },
+  { path: 'cookies', component: CookiesComponent },
   { path: 'terms', component: TermsComponent },
   { path: 'policy', component: PolicyComponent },
   { path: 'faq', component: FaqComponent },

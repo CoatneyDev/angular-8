@@ -5,7 +5,6 @@ import { NgMaterialModule } from '../presentation/ng-material.module';
 import { DynamicDialogComponent } from '../components/dynamic-dialog/dynamic-dialog.component';
 import { DynamicDataComponent } from '../components/dynamic-dialog/dynamic-data.component';
 import { DynamicDataDirective } from '../directives/dynamic-data.directive';
-import { DynamicItem } from '../components/dynamic-dialog/dynamic-item.component';
 
 @NgModule({
   entryComponents: [DynamicDialogComponent, DynamicDataComponent],

@@ -6,7 +6,6 @@ import { Store } from '@ngrx/store';
 import { AuthenticationService } from '../../authentication.service';
 import * as fromRoot from '../../../../app.reducer';
 
-
 @Component({
   selector: 'coatneydev-signup',
   templateUrl: './signup.component.html',
