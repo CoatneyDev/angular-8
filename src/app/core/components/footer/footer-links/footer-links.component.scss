@@ -1,0 +1,16 @@
+
+hr {
+    border: 3px solid teal;
+    width: 56%;
+    margin: 0;
+    margin-bottom: 1.5rem;
+}
+.footer__right-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &--item {
+padding: 1rem;
+    }
+}

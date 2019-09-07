@@ -14,7 +14,9 @@ import {
   MatNativeDateModule,
   MatDatepickerModule,
   MatCheckboxModule,
-  MatDialogModule
+  MatDialogModule,
+  MatCardModule,
+
   /*
   MatTooltipModule,
   MatOptionModule,
@@ -40,6 +42,8 @@ import {
     MatDatepickerModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatCardModule,
+    MatSidenavModule,
     /*
       MatTooltipModule,
     MatOptionModule,
@@ -60,6 +64,9 @@ import {
     MatDatepickerModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatCardModule,
+    MatSidenavModule,
+
     /*
     MatTooltipModule,
     MatOptionModule,

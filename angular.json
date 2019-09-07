@@ -32,7 +32,9 @@
               "src/assets/bulma.sass",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/animate.css.js"
+            ]
           },
           "configurations": {
             "production": {

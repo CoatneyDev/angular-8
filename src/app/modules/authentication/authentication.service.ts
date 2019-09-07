@@ -37,7 +37,7 @@ export class AuthenticationService {
 
       if (user && user.emailVerified) {
         this.store.dispatch(new AUTH.SetAuthenticated());
-        this.route.navigate(['/dashboard']);
+        //this.route.navigate(['/dashboard']);
         this.profile.initProfile();
       } else {
         this.store.dispatch(new AUTH.SetUnauthenticated());

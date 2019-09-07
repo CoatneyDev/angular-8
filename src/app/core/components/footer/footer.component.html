@@ -2,13 +2,19 @@
 
     <div class="footer__middle-layer" fxHide.xs>
         <div class="footer__left-box">
-            <div class="footer__left-box--logo">
+            <!--   <div class="footer__left-box--logo">
                 <figure>
                     <img src="assets/footer_logo.jpg" alt="The Footer Logo" width="304" height="228">
                 </figure>
-            </div>
+            </div> -->
             <div class="footer__left-box--contact">
-                <address class="has-text-white">
+
+                <coatneydev-contact></coatneydev-contact>
+
+
+
+
+                <!--address class="has-text-white">
 
                     <ng-template [ngIf]="email && author">Written by <a href="mailto:{{ email }}"
                             class="written-by-link">{{ author }}</a>.<br></ng-template>
@@ -25,83 +31,102 @@
 
 
                     <ng-template [ngIf]="country">{{ country }}<br /></ng-template>
-                </address>
+                </address-->
 
             </div>
         </div>
         <div class="footer__right-box">
 
-            <div class="footer__right-box--item">
+            <div class="footer__right-box--logo">
 
-                <h2 class="header">{{ company }}</h2>
-                <hr>
-                <ul class="footer__contact-list">
-                    <li class="footer__contact-list--item">About</li>
-                    <li class="footer__contact-list--item">Blog</li>
-                    <li class="footer__contact-list--item">Jobs</li>
-                    <li class="footer__contact-list--item">Blah</li>
-                    <li class="footer__contact-list--item">Contact</li>
-                </ul>
+                <h1>Doing Something Cool For Clients.</h1>
+
+            </div>
+            <div class="footer__right-box--links">
+
+
+                <coatneydev-footer-links>
+                    <!--h2 class="footer__links-header">{{ company }}</h2-->
+                    <h2 class="footer__links-header">Company</h2>
+                    <a routerLink="signup" class="anchor-1">About</a>
+                    <a routerLink="terms" class="anchor-2">Blog</a>
+                    <a routerLink="terms" class="anchor-3">Jobs</a>
+                    <a routerLink="terms" class="anchor-4">Team</a>
+                    <a routerLink="terms" class="anchor-5">Contact</a>
+                </coatneydev-footer-links>
+
+                <coatneydev-footer-links>
+                    <h2 class="footer__links-header">Follow</h2>
+                    <a routerLink="signup" class="anchor-1">Twitter</a>
+                    <a routerLink="terms" class="anchor-2">Facebook</a>
+                    <a routerLink="terms" class="anchor-3">Google+</a>
+                    <a routerLink="terms" class="anchor-4">Instagram</a>
+                    <a routerLink="terms" class="anchor-5">Pintrest</a>
+                </coatneydev-footer-links>
+
+
+
+                <coatneydev-footer-links>
+                    <h2 class="footer__links-header">Legal</h2>
+                    <a routerLink="signup" class="anchor-1">Sign Up</a>
+                    <a routerLink="cookie" class="anchor-2">Cookie Policy</a>
+                    <a routerLink="privacy" class="anchor-3">Privacy Policy</a>
+                    <a routerLink="terms" class="anchor-4">Terms Of Service</a>
+                    <a routerLink="faq" class="anchor-5">Frequenly Asked Questions</a>
+                </coatneydev-footer-links>
+
+                <coatneydev-footer-links>
+                    <h2 class="footer__links-header">Community</h2>
+                    <a routerLink="terms" class="anchor-1">Community Board</a>
+                    <a routerLink="terms" class="anchor-2">Local Resources</a>
+                    <a routerLink="terms" class="anchor-3">Jobs</a>
+                    <a routerLink="terms" class="anchor-4">People</a>
+                    <a routerLink="terms" class="anchor-5">Misc</a>
+                </coatneydev-footer-links>
             </div>
 
-
-            <div class="footer__right-box--item">
-
-                <h2 class="header">Employers</h2>
-                <hr>
-                <ul class="footer__employers-list">
-                    <li class="footer__employers-list--item">Sign Up</li>
-                    <li class="footer__employers-list--item">Post Jobs</li>
-                    <li class="footer__employers-list--item">Connect</li>
-                    <li class="footer__employers-list--item">Account</li>
-                    <li class="footer__employers-list--item">Employer Center</li>
-                </ul>
-            </div>
-            <div class="footer__right-box--item">
-
-                <h2 class="header">Community</h2>
-                <hr>
-                <ul class="footer__community-list">
-                    <li class="footer__community-list--item">Community Board</li>
-                    <li class="footer__community-list--item">Local Resources</li>
-                    <li class="footer__community-list--item">Blah</li>
-                    <li class="footer__community-list--item">Blah</li>
-                    <li class="footer__community-list--item">Blah</li>
-                </ul>
-            </div>
 
 
         </div>
-        <span class="copyright">&copy;{{ year }} {{ author }}. All Rights Reserved.</span>
 
     </div>
     <div class="footer__bottom-layer">
-        <ul class="footer__social level-item has-text-centered">
-            <li class="footer__social--icon level-item has-text-centered">
-                <figure>
-                    <img src="assets/social-icons/Twitter.png" alt="Twitter">
-                </figure>
-            </li>
-            <li class="footer__social--icon level-item has-text-centered">
-                <figure>
-                    <img src="assets/social-icons/Facebook.png" alt="Facebook">
-                </figure>
-            </li>
-            <li class="footer__social--icon level-item has-text-centered">
-                <figure>
-                    <img src="assets/social-icons/Instagram.png" alt="Instagram">
-                </figure>
-            </li>
-            <li class="footer__social--icon level-item has-text-centered">
-                <figure>
-                    <img src="assets/social-icons/YouTube.png" alt="YouTube">
-                </figure>
-            </li>
-            <li class="footer__social--icon level-item has-text-centered">
-                <figure>
-                    <img src="assets/social-icons/LinkedIn.png" alt="LinkedIn">
-                </figure>
-            </li>
-        </ul>
+        <div class="footer__bottom-layer--item">
+            <ul class="footer__social level-item has-text-centered">
+                <li class="footer__social--icon level-item has-text-centered">
+                    <figure>
+                        <img src="assets/social-icons/Twitter.png" alt="Twitter">
+                    </figure>
+                </li>
+                <li class="footer__social--icon level-item has-text-centered">
+                    <figure>
+                        <img src="assets/social-icons/Facebook.png" alt="Facebook">
+                    </figure>
+                </li>
+                <li class="footer__social--icon level-item has-text-centered">
+                    <figure>
+                        <img src="assets/social-icons/Instagram.png" alt="Instagram">
+                    </figure>
+                </li>
+                <li class="footer__social--icon level-item has-text-centered">
+                    <figure>
+                        <img src="assets/social-icons/YouTube.png" alt="YouTube">
+                    </figure>
+                </li>
+                <li class="footer__social--icon level-item has-text-centered">
+                    <figure>
+                        <img src="assets/social-icons/LinkedIn.png" alt="LinkedIn">
+                    </figure>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <div class="footer__bottom-layer--item">
+            <span class="copyright">&copy;{{ year }} {{ author }}. All Rights Reserved.</span>
+        </div>
+
+
     </div>
 </div>

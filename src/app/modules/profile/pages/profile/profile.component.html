@@ -1,1 +1,96 @@
-<p>profile works!</p>
+<section class="profile">
+
+    <div class="hero">
+
+        <div class="container">
+
+            <div class="ozone">
+                <div class="ozone__avatar"></div>
+            </div>
+            <div class="avatar"></div>
+            <div class="profile">
+                <div class="profile__info-bar">
+                    <div class="profile__info-bar--header-bar">
+                        <h3 class="profile__info-bar--header mat-display-1">Member Profile</h3>
+                    </div>
+                    <div class="profile__info-bar--header-stripe"></div>
+                    <div class="profile__info-bar--header-stripe"></div>
+
+
+                    <p class="profile__info-bar--item">
+                        <mat-icon>person</mat-icon>Name: {{ name | obscenity }}
+                    </p>
+
+                    <p class="profile__info-bar--item">
+                        <mat-icon>map</mat-icon>Location: Los Angeles
+                    </p>
+
+                    <p class="profile__info-bar--description">
+                        <mat-icon>description</mat-icon> {{ description | obscenity }}
+
+                    </p>
+                </div>
+
+
+
+                <div class="profile__icon-bar">
+                    <div class="profile__icon-bar--icon"><span class="profile__icon-bar--icon-value">9</span>
+                        <mat-icon class="profile__icon-bar--icon-icon">favorite</mat-icon>
+                        <span class="profile__icon-bar--icon-label">favor</span>
+                    </div>
+                    <div class="profile__icon-bar--icon"><span class="profile__icon-bar--icon-value">9</span>
+                        <mat-icon class="profile__icon-bar--icon-icon">grade</mat-icon>
+                        <span class="profile__icon-bar--icon-label">stars</span>
+                    </div>
+                    <div class="profile__icon-bar--icon"><span class="profile__icon-bar--icon-value">9</span>
+                        <mat-icon class="profile__icon-bar--icon-icon">face</mat-icon>
+                        <span class="profile__icon-bar--icon-label">folks</span>
+                    </div>
+                    <div class="profile__icon-bar--icon"><span class="profile__icon-bar--icon-value">9</span>
+                        <mat-icon class="profile__icon-bar--icon-icon">eco</mat-icon>
+                        <span class="profile__icon-bar--icon-label">jobs</span>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="command-bar">
+
+
+        <div class="command-bar__ribbon">
+            <div class="command-bar__icon-wrapper">
+                <mat-icon (click)="mailClick()" class="animated infinite tada delay-2s">mail</mat-icon>
+                <mat-icon class="animated infinite jello delay-2s">photo_library</mat-icon>
+                <mat-icon class="animated infinite heartBeat delay-2s">favorite</mat-icon>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <div class="message">
+                <h3 class="mat-display-1 header">Send Message</h3>
+                <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+                    <textarea placeholder="Type Message..." name="message" id="message" maxlength="255"
+                        ngModel></textarea>
+                    <button *ngIf="!isLoading$" type="submit" mat-raised-button color="primary"
+                        [disabled]="contactForm.invalid">Submit</button>
+                    <mat-spinner *ngIf="isLoading$"></mat-spinner>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="listings__wrapper">
+        <div class="listings__wrapper--listings">
+            Listings will go here
+        </div>
+    </div>
+</section>

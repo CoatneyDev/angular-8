@@ -8,6 +8,7 @@ import { application } from 'src/app/configs/app.config';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  // Fill out application configuration in src/config
   public title: string;
   public company: string;
   public author: string;

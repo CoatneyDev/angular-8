@@ -1,0 +1,21 @@
+.contact-form {
+display: flexbox;
+margin: 0 auto;
+padding: 2rem;
+max-width: 50vw;
+
+}
+
+.card-image {
+    display: flexbox;
+margin: 0 auto;
+}
+.example-card {
+  max-width: 450px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+

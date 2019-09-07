@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 import { PipesModule } from './pipes/pipes.module';
 import { reducers } from '../app.reducer';
@@ -20,10 +21,13 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ToolbarComponent } from './components/navigation/toolbar/toolbar.component';
 import { SidenavComponent } from './components/navigation/sidenav/sidenav.component';
 import { environment } from '../../environments/environment';
+import { StopClickPropagationDirective } from './directives/stop-click-propagation.directive';
+import { ContactComponent } from './components/contact/contact.component';
+import { FooterLinksComponent } from './components/footer/footer-links/footer-links.component';
 
 @NgModule({
 
-  declarations: [HeaderComponent, FooterComponent, NavigationComponent, ToolbarComponent, SidenavComponent],
+  declarations: [HeaderComponent, FooterComponent, NavigationComponent, ToolbarComponent, SidenavComponent, StopClickPropagationDirective, ContactComponent, FooterLinksComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -31,6 +35,7 @@ import { environment } from '../../environments/environment';
     FlexLayoutModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFireModule,
     StoreModule.forRoot(reducers),
     NgMaterialModule,
     AuthenticationModule,
@@ -55,9 +60,10 @@ import { environment } from '../../environments/environment';
     ProfileModule,
     PipesModule,
     DynamicDialogModule,
-    LegalModule
+    LegalModule,
+    StopClickPropagationDirective
 
   ],
-  providers: []
+  providers: [AngularFirestore]
 })
 export class CoreModule { }

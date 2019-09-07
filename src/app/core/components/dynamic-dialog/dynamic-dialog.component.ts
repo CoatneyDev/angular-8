@@ -1,8 +1,7 @@
-import { Component, ViewChild, AfterViewInit, Type } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, Type, Input, ElementRef } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { DynamicDataService } from '../../services/dynamic-data.service';
-
 
 @Component({
   selector: 'coatneydev-dynamic-dialog',
@@ -10,6 +9,9 @@ import { DynamicDataService } from '../../services/dynamic-data.service';
   styleUrls: ['./dynamic-dialog.component.scss']
 })
 export class DynamicDialogComponent {
+  @ViewChild("link", { static: false }) anchor: ElementRef;
+
+  @Input() type: string;
 
   constructor(public dialog: MatDialog, private dynamicService: DynamicDataService) { }
 
@@ -28,6 +30,10 @@ export class DynamicDialogComponent {
 
 
   public open() {
-    this.openDialog(this.dynamicService.getTermsComponent());
+
+    if (this.type) {
+      this.openDialog(this.dynamicService.getComponent(this.type));
+    }
+    return false;
   }
 }

@@ -1,0 +1,332 @@
+
+
+
+section.profile {
+    display: flex;
+    flex-direction: column;
+    height: 100vw;
+    width: 100vh;
+
+}
+
+.hero {
+    color: white;
+    height: 300px;
+    width: 100vw;
+    background-image: linear-gradient( to right bottom, rgba(#777, 0.8), rgba(#000, 0.8)), url(src/assets/profile.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.command-bar {
+    width: 100vw;
+    height: 50px;
+    background-color: var(--color-primary);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    &__ribbon {
+        height: 20px;
+        width: 100vw;
+       
+        align-self: center;
+
+
+        box-shadow: 0 1rem 2rem rgba(#000, .4);
+
+        border-top: 1px solid var(--gleam-primary);
+        border-bottom: 1px solid var(--color-primary-dark);
+       
+        background-image: linear-gradient(to right bottom, rgba(var(--color-primary-light),.8), rgba(var(--color-primary-dark),.8)), url(https://source.unsplash.com/nJHvhXS4C0U);
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    &__icon-wrapper{
+        width: 200px;
+        display: flex;
+         justify-content: space-between;
+        & mat-icon {
+            cursor: pointer;
+            &:hover {
+                 color: var(--color-secondary);
+             
+
+            }
+        }
+    }
+  
+    }
+
+.container {
+    width: 50%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+      
+
+}
+/*
+.ozone {
+    margin: 2rem;
+    height: 100px !important;
+    width: 100px !important;
+    max-width: 100px !important;
+    max-height: 100px !important;
+    min-width: 100px !important;
+    min-height: 100px !important;
+
+
+
+   
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1rem 2rem rgba(#000, .4);
+
+    &__avatar {
+        position: relative;
+        height: 75%;
+        width: 75%;
+
+
+        
+        
+        background-color: whitesmoke;
+        border-radius: 50%;
+    }
+}
+*/
+
+.avatar {
+    height: 100px !important;
+    width: 100px !important;
+    max-width: 100px !important;
+    max-height: 100px !important;
+    min-width: 100px !important;
+    min-height: 100px !important;
+    box-shadow: 0 1rem 2rem rgba(#000, .4);
+    padding: 5px;
+    border: 5px solid white;
+    margin: 2rem;
+    background-clip: padding-box;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center center;
+    background-image: url(https://source.unsplash.com/nJHvhXS4C0U);
+}
+
+.profile {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+
+
+
+    &__info-bar {
+
+        & mat-icon {
+            margin-right: 1rem;
+            color: var(--color-secondary);
+        }
+
+        &--header-bar {
+            height: 50px;
+            width: 80%;
+            margin-top: 1rem;
+            box-shadow: 0 1rem 2rem rgba(#000, .4);
+            background-image: linear-gradient(to right, rgba(#000, .4) , rgba(#000, 0));
+            display: flex;
+           
+
+        }
+
+        &--header-stripe {
+            height: 1px;
+            width: 80%;
+            margin-top: .1rem;
+            
+            background-image: linear-gradient(to right, rgba(#000, .4) , rgba(#000, 0));
+           
+            &-1 {
+                height: 5px;
+            }
+
+            &-2 {
+                height: 2px;
+               
+            }
+           
+        }
+
+        &--header {
+            color: var(--color-secondary);
+            margin-left: 1rem;
+           
+            
+        }
+
+        &--item {
+            margin-top: 1rem;
+            margin-left: 2rem;
+            color: white;
+        }
+
+        &--description {
+            margin: 2rem;
+            width: 80%;
+            overflow: hidden;
+        }
+    }
+
+    &__icon-bar {
+        width: 150px;
+        height: 100%;
+        margin-left: 1rem;
+        background-color: rgba(#000,.2);
+        display: flex;
+        flex-direction: column;
+        
+        align-items: center;
+        justify-content: center;
+        
+        &--icon {
+            margin-bottom: 1rem;
+           display: flex;
+            
+            &-icon {
+                width: 2rem;
+                color: var(--color-primary);
+              
+            }
+
+            &-value {
+                width: 2rem;
+            }
+
+            &-label {
+                width: 2rem;
+            }
+        }
+
+    }
+   
+
+
+}
+
+
+/*
+
+
+    &__icon-bar {
+        background-color: orangered;
+        height: 100px;
+        width: 300px;
+ 
+
+
+        &--icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &-value {
+
+            }
+
+            &-icon {
+                color: var(--color-primary);
+            }
+
+            &-label {
+
+            }
+        }
+    }
+*/
+
+.listings__wrapper {
+    width: 100vw;
+    min-height: 400px;
+    
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    &--listings{
+        margin-top: 2rem;
+        width: 50%;
+        height: 400px;
+        background-color: var(--color-primary);
+        box-shadow: 0 1rem 2rem rgba(#000, .4);
+        border-radius: 5px;
+        color: white;
+        padding: 2rem;
+    }
+}
+
+.content {
+    color: white;
+    width: 100vw;
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+    display: none;
+    visibility: hidden;
+}
+
+
+
+
+.message {
+    width: 50%;
+    min-width: 300px;
+    height: 300px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    box-shadow: 0 1rem 2rem rgba(#000, .4);
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        
+        * {
+            margin-bottom: 1rem;
+
+        }
+    }
+}
+
+
+
+

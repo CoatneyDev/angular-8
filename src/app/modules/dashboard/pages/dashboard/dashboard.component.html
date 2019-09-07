@@ -1,2 +1,24 @@
-<p>dashboard works!</p>
-<img src="https://picsum.photos/600/600">
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <nav>
+            <a id="profile" class="active"><i class="fa fa-user"></i></a>
+            <a id="payment"><i class="fa fa-credit-card"></i></a>
+            <a id="subscription"><i class="fa fa-tv"></i></a>
+            <a id="privacy"><i class="fa fa-tasks"></i></a>
+            <a id="settings"><i class="fa fa-cog"></i></a>
+        </nav>
+        <p>Auto-resizing sidenav</p>
+        <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+        <button (click)="showFiller = !showFiller" mat-raised-button>
+            Toggle extra text
+        </button>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+        <button type="button" mat-button (click)="drawer.toggle()">
+            Toggle sidenav
+        </button>
+        <coatneydev-edit-profile></coatneydev-edit-profile>
+    </div>
+
+</mat-drawer-container>
