@@ -1,3 +1,5 @@
+@import '~@angular/material/theming';
+
 .example-container {
   width: 100vw;
   height: 100vh;
@@ -12,5 +14,33 @@
 }
 
 .example-sidenav {
-  padding: 20px;
+  //padding: 20px;
+}
+
+mat-drawer {
+  //width:100%; 
+  overflow:auto;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+
+  & .nav__menu {
+    padding:0; 
+    margin:0; 
+    white-space:nowrap;
+
+    & .menu-item{
+      width: 100%; 
+      list-style-type:none; 
+      padding:0 2rem; 
+      margin:0; 
+      white-space:nowrap;
+      //display:inline-block;
+
+      &:hover{
+        background-color: var(--color-white);
+        color: var(--color-primary);
+
+      }
+    }
+  }
 }

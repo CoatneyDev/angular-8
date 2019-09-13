@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, RouterStateSnapshot, RouterState, ActivatedRouteSnapshot } from '@angular/router';
 import { Store } from '@ngrx/store';
 
-import { UserInterface } from './interfaces/user.interface';
 import { AuthDataInterface } from './interfaces/auth-data-interface';
 import { UiService } from '../../core/presentation/ui.service';
 import * as fromRoot from '../../app.reducer';
@@ -26,10 +25,12 @@ export class AuthenticationService {
     private route: Router,
     private afAuth: AngularFireAuth,
     private profile: ProfileService,
-    private snackbar: MatSnackBar,
     private uiService: UiService,
     private store: Store<{ ui: fromRoot.State }>
-  ) { }
+  ) {
+
+
+  }
 
   initAuthListener() {
 
@@ -37,10 +38,21 @@ export class AuthenticationService {
 
       if (user && user.emailVerified) {
         this.store.dispatch(new AUTH.SetAuthenticated());
-        //this.route.navigate(['/dashboard']);
         this.profile.initProfile();
+
+        // If headed somewhere before security check, continue on
+        if (this.isEnroute()) {
+          this.enroute();
+        }
+        else { // otherwise go to dashboard
+          this.route.navigate(['/dashboard']);
+        }
+        //console.log("AUTHENTICATED");
       } else {
         this.store.dispatch(new AUTH.SetUnauthenticated());
+        //console.log("UNAUTHENTICATED");
+        this.reroute();
+        // this.uiService.showSnackBar("You may not have access to that resource. Please login or signup!", null, 3000);
       }
     });
   }
@@ -77,9 +89,10 @@ export class AuthenticationService {
         if (result.user.emailVerified !== true) {
           this.sendVerificationMail();
           this.uiService.showSnackBar(this.validateMessage, null, 3000);
+
         }
         else {
-          this.route.navigate(['/']);
+          this.reroute(); // BACK
           this.store.dispatch(new UI.StopLoading());
         }
       })
@@ -92,6 +105,7 @@ export class AuthenticationService {
   logout() {
     try {
       this.declineEntry();
+
       this.uiService.showSnackBar("You have successfully logged out!", null, 5000);
     } catch (err) {
       this.uiService.showSnackBar(err.message, null, 3000);
@@ -111,12 +125,37 @@ export class AuthenticationService {
 
   declineEntry() {
     this.store.dispatch(new UI.StopLoading());
-    this.route.navigate(['/login']);
     this.afAuth.auth.signOut();
+    this.reroute();
   }
 
   isAuth() {
     return this.isAuthenticated;
+  }
+
+  isEnroute() {
+    return (this.redirectTo !== null && this.redirectTo !== undefined) ? true : false;
+  }
+
+  enroute() {
+
+    this.route.navigate([this.redirectTo]);
+    this.redirectTo = null;
+
+  }
+
+  reroute() {
+
+    if (this.redirectTo) {
+      // not logged in so redirect to login page with the return url and return false
+      this.route.navigate(['/login'], { queryParams: { returnUrl: this.redirectTo } });
+      this.redirectTo = null;
+
+    }
+    else {
+      this.route.navigate(['/login']);
+    }
+
   }
 
 

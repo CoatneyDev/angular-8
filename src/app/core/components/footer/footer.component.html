@@ -48,40 +48,41 @@
                 <coatneydev-footer-links>
                     <!--h2 class="footer__links-header">{{ company }}</h2-->
                     <h2 class="footer__links-header">Company</h2>
-                    <a routerLink="signup" class="anchor-1">About</a>
-                    <a routerLink="terms" class="anchor-2">Blog</a>
-                    <a routerLink="terms" class="anchor-3">Jobs</a>
-                    <a routerLink="terms" class="anchor-4">Team</a>
-                    <a routerLink="terms" class="anchor-5">Contact</a>
+                    <a routerLink="/signup" class="anchor-1">About</a>
+                    <a routerLink="/terms" class="anchor-2">Blog</a>
+                    <a routerLink="/terms" class="anchor-3">Jobs</a>
+                    <a routerLink="/terms" class="anchor-4">Team</a>
+                    <a routerLink="/terms" class="anchor-5">Contact</a>
                 </coatneydev-footer-links>
 
                 <coatneydev-footer-links>
                     <h2 class="footer__links-header">Follow</h2>
-                    <a routerLink="signup" class="anchor-1">Twitter</a>
-                    <a routerLink="terms" class="anchor-2">Facebook</a>
-                    <a routerLink="terms" class="anchor-3">Google+</a>
-                    <a routerLink="terms" class="anchor-4">Instagram</a>
-                    <a routerLink="terms" class="anchor-5">Pintrest</a>
+                    <a routerLink="/signup" class="anchor-1">Twitter</a>
+                    <a routerLink="/terms" class="anchor-2">Facebook</a>
+                    <a routerLink="/terms" class="anchor-3">Google+</a>
+                    <a routerLink="/terms" class="anchor-4">Instagram</a>
+                    <a routerLink="/terms" class="anchor-5">Pintrest</a>
                 </coatneydev-footer-links>
 
 
 
                 <coatneydev-footer-links>
                     <h2 class="footer__links-header">Legal</h2>
-                    <a routerLink="signup" class="anchor-1">Sign Up</a>
-                    <a routerLink="cookie" class="anchor-2">Cookie Policy</a>
-                    <a routerLink="privacy" class="anchor-3">Privacy Policy</a>
-                    <a routerLink="terms" class="anchor-4">Terms Of Service</a>
-                    <a routerLink="faq" class="anchor-5">Frequenly Asked Questions</a>
+                    <a routerLink="/signup" class="anchor-1">Sign Up</a>
+                    <a routerLink="legal/cookies" class="anchor-2">Cookie Policy</a>
+                    <a routerLink="legal/privacy" class="anchor-3">Privacy Policy</a>
+                    <a routerLink="legal/terms" class="anchor-4">Terms Of Service</a>
+                    <a routerLink="legal/faq" class="anchor-5">FAQ</a>
                 </coatneydev-footer-links>
 
                 <coatneydev-footer-links>
                     <h2 class="footer__links-header">Community</h2>
-                    <a routerLink="terms" class="anchor-1">Community Board</a>
-                    <a routerLink="terms" class="anchor-2">Local Resources</a>
-                    <a routerLink="terms" class="anchor-3">Jobs</a>
-                    <a routerLink="terms" class="anchor-4">People</a>
-                    <a routerLink="terms" class="anchor-5">Misc</a>
+                    <a routerLink="legal/terms" class="anchor-1">Community Board</a>
+                    <a routerLink="legal/terms" class="anchor-2">Local Resources</a>
+                    <a routerLink="/dashboard" [queryParams]="{ returnUrl: '/dashboard'}" queryParamsHandling="merge"
+                        class="anchor-3">DASHBOARD</a>
+                    <a routerLink="legal/terms" class="anchor-4">People</a>
+                    <a routerLink="/profile/8WCFA4x5iqg2gC5gmYO28gRBppI3" class="anchor-5">ROUTE TEST</a>
                 </coatneydev-footer-links>
             </div>
 

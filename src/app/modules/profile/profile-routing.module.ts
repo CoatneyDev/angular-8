@@ -4,9 +4,10 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 
 const routes: Routes = [
-  { path: '', component: ProfileComponent },
-  { path: ':id', component: ProfileComponent },
+  { path: '', component: ProfileComponent }, // This User profile page
+  { path: 'member/:id', component: ProfileComponent }, // Member Page
   { path: 'edit', component: EditProfileComponent },
+  { path: '**', component: ProfileComponent },
 ];
 
 @NgModule({

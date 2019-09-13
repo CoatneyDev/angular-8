@@ -6,10 +6,10 @@ import { PolicyComponent } from './pages/policy/policy.component';
 import { CookiesComponent } from './pages/cookies/cookies.component';
 
 const routes: Routes = [
-  { path: '', component: TermsComponent },
+  { path: '', component: FaqComponent },
   { path: 'cookies', component: CookiesComponent },
   { path: 'terms', component: TermsComponent },
-  { path: 'policy', component: PolicyComponent },
+  { path: 'privacy', component: PolicyComponent },
   { path: 'faq', component: FaqComponent },
   { path: '**', redirectTo: '' },
 ];

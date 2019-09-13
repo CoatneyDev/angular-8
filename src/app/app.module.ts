@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './modules/home/home.module';
+import { RouterStateSnapshot } from '@angular/router';
+import { AuthGuard } from '../../src/app/modules/authentication/authentication.guard';
 
 @NgModule({
 

@@ -9,7 +9,9 @@ import { MessageInterface } from '../../../../core/interfaces/message.interface'
 import { MessagingService } from '../../../../core/services/messaging.service';
 import { ProfileService } from '../../profile.service';
 import { UiService } from 'src/app/core/presentation/ui.service';
+import { ActivatedRoute } from '@angular/router';
 
+// Native JS function declaration
 declare function animateCSS(element: string, animation: string, callback: any): any;
 
 @Component({
@@ -23,26 +25,37 @@ export class ProfileComponent implements OnInit {
   @Input() name: string;
   @Input() photo: string;
   @Input() description: string;
+  @Input() location: string;
 
   constructor(
     private profile: ProfileService,
     private messageService: MessagingService,
     private store: Store<fromRoot.State>,
-    private uiService: UiService) { }
+    private uiService: UiService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.store.select(fromRoot.getIsLoading);
 
-    this.uid = this.profile.uid ? this.profile.uid : "user";
-    this.name = this.profile.name ? this.profile.name : "name";
-    this.photo = this.profile.photoUrl ? this.profile.photoUrl : "https://picsum.photos/100/100";
-    this.description = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia dolorem id natus quasi minus, dict sint.";
-
-
+    this.loadProfile();
     animateCSS('.content', 'bounce', function () {
       // Do something after animation
 
     });
+
+  }
+
+  loadProfile() {
+    let profile = this.profile.fetchProfile(this.route.snapshot.params['id']);
+
+    // Get profile Id
+    //this.uid = this.route.snapshot.params['id'] ? this.route.snapshot.params['id'] : this.profile.uid;
+    //console.log("SNAPSHOT ID: " + this.uid);
+
+    this.name = profile.name;
+    this.photo = profile.photo;
+    this.description = profile.bio;
+    this.location = profile.location;
 
   }
 
