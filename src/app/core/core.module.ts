@@ -24,10 +24,13 @@ import { environment } from '../../environments/environment';
 import { StopClickPropagationDirective } from './directives/stop-click-propagation.directive';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterLinksComponent } from './components/footer/footer-links/footer-links.component';
+import { DropdownDirective } from './directives/dropdown.directive';
+import { LoggingService } from './services/logging.service';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
 
 @NgModule({
 
-  declarations: [HeaderComponent, FooterComponent, NavigationComponent, ToolbarComponent, SidenavComponent, StopClickPropagationDirective, ContactComponent, FooterLinksComponent],
+  declarations: [HeaderComponent, FooterComponent, NavigationComponent, ToolbarComponent, SidenavComponent, StopClickPropagationDirective, ContactComponent, FooterLinksComponent, DropdownDirective, DropdownComponent],
   imports: [
     CommonModule,
     RouterModule,

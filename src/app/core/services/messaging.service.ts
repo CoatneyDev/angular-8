@@ -14,7 +14,6 @@ export class MessagingService {
 
   constructor(private db: FirestoreService) { }
 
-
   public saveMessage(message: MessageInterface) {
 
     this.db.createMessage(message);
