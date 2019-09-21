@@ -1,53 +1,65 @@
 <section class="profile-settings__form">
-    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #loginForm="ngForm"
+    <form fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px" #loginForm="ngForm"
         (ngSubmit)="onSubmit(loginForm)">
-        <mat-form-field class="example-full-width">
-            <input matInput #bio maxlength="256" placeholder="Bio">
-            <mat-hint align="start" color="accent"><strong>Don't disclose personal info</strong> </mat-hint>
-            <mat-hint align="end" color="accent">{{bio.value.length}} / 256</mat-hint>
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Tools">
 
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>State</mat-label>
-            <mat-select>
-                <mat-option>None</mat-option>
-                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Account Type:</mat-label>
-            <mat-select name="accountType" required>
-                <mat-option>--</mat-option>
-                <mat-option>Employer</mat-option>
-                <mat-option>Employee</mat-option>
-            </mat-select>
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <mat-form-field class="example-full-width">
+                <input matInput #bio maxlength="256" placeholder="Bio">
+                <mat-hint align="start" color="accent"><strong>Don't disclose personal info</strong> </mat-hint>
+                <mat-hint align="end" color="accent">{{bio.value.length}} / 256</mat-hint>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Tools">
 
-        </mat-form-field>
-        <mat-form-field>
-            <input type="email" matInput placeholder="Your Email" ngModel name="email" email required
-                #emailInput="ngModel">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>State</mat-label>
+                <mat-select>
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Account Type:</mat-label>
+                <mat-select name="accountType" required>
+                    <mat-option>--</mat-option>
+                    <mat-option>Employer</mat-option>
+                    <mat-option>Job Seeker</mat-option>
+                    <mat-option>Advertiser</mat-option>
+                </mat-select>
 
-            <mat-error *ngIf="emailInput.hasError('required')">Field must not be empty.</mat-error>
-            <mat-error *ngIf="!emailInput.hasError('required')">E-mail is invalid.</mat-error>
-        </mat-form-field>
+            </mat-form-field>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <mat-form-field>
+                <input type="email" matInput placeholder="Your Email" ngModel name="email" email required
+                    #emailInput="ngModel">
 
-        <mat-form-field>
-            <input matInput placeholder="Mobile" name="mobile" id="mobile" ngModel required>
+                <mat-error *ngIf="emailInput.hasError('required')">Field must not be empty.</mat-error>
+                <mat-error *ngIf="!emailInput.hasError('required')">Please enter valid Email Address</mat-error>
+            </mat-form-field>
 
-            <mat-error>This is an error</mat-error>
-        </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Mobile" name="mobile" id="mobile" ngModel
+                    pattern="^[2-9]\d{2}-\d{3}-\d{4}$" required>
 
-        <mat-form-field>
-            <input matInput placeholder="Zipcode" name="zipcode" id="zipcode" ngModel required>
+                <mat-error>Please enter valid 9 digit U.S. Phone Number</mat-error>
+            </mat-form-field>
 
-            <mat-error>This is an error</mat-error>
-        </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Zipcode" name="zipcode" id="zipcode" ngModel
+                    pattern="^[0-9]{5}(?:-[0-9]{4})?$" required>
 
-        <button *ngIf="!(isLoading$ | async)" type="submit" mat-raised-button color="primary"
-            [disabled]="loginForm.invalid">Submit</button>
-        <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
+                <mat-error>Please enter valid U.S. Postal Code</mat-error>
+            </mat-form-field>
+            <button *ngIf="!(isLoading$ | async)" type="submit" mat-raised-button color="primary"
+                [disabled]="loginForm.invalid">Submit</button>
+
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+
+            <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
+        </div>
+
     </form>
 </section>
