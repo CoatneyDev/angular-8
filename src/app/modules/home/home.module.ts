@@ -13,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
     HomeRoutingModule,
   ],
   exports: [
+    CoreModule,
     HomeComponent,
     HomeRoutingModule,
   ]

@@ -8,6 +8,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+
 import { PipesModule } from './pipes/pipes.module';
 import { reducers } from '../app.reducer';
 import { NgMaterialModule } from './presentation/ng-material.module';

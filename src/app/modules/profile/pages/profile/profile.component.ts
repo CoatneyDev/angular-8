@@ -45,30 +45,35 @@ export class ProfileComponent implements OnInit {
     //private afAuth: AngularFireAuth
   ) {
 
+    this.memberProfile = this.profileService.dummyMember();
+
     // Subscription does not rely on page load
     this.route.params.subscribe(params => this.loadProfile(params.id));
   }
 
   ngOnInit() {
+
+
+
     this.store.select(fromRoot.getIsLoading);
 
     // Default profile is logged in user
-    this.memberProfile = this.profileService.thisMember;
+    //this.memberProfile = this.profileService.thisMember;
 
     // NOT WHAT WE WANTED!!
     // Change profile when user logs in or out out
-    this.memberChanged = this.profileService.MemberUpdated.subscribe(
-      (member: Member) => {
-        console.log("MEMBERCHANGED ON ME!!!");
-        if (!this.route.paramMap['id']) {
-          console.log("PARAM MAP ID EMPTY");
-          this.loadProfile(member.id); // Members collection id
-        }
-        else {
-          console.log("PARAM MAP ID NOT EMPTY");
-        }
-      }
-    );
+    /*  this.memberChanged = this.profileService.MemberUpdated.subscribe(
+       (member: Member) => {
+         console.log("MEMBERCHANGED ON ME!!!");
+         if (!this.route.paramMap['id']) {
+           console.log("PARAM MAP ID EMPTY");
+           this.loadProfile(member.id); // Members collection id
+         }
+         else {
+           console.log("PARAM MAP ID NOT EMPTY");
+         }
+       }
+     ); */
 
 
     animateCSS('.content', 'bounce', function () {
@@ -83,19 +88,8 @@ export class ProfileComponent implements OnInit {
   // Load the Profile of the member specified by uid
   loadProfile(uid: string) {
     console.log("LOADING PROFILE FOR " + uid);
-    this.memberProfile = this.profileService.getProfile(uid);
-    /* 
-        if (p) {
-          this.uid = p.uid;
-          this.name = p.profile.displayName;
-          this.city = p.address.city;
-          this.bio = p.profile.bio;
-          this.photo = p.profile.photo;
-          this.jobs = p.profile.jobs;
-          this.favor = p.profile.favor;
-          this.folks = p.profile.folks;
-          this.rating = p.profile.rating;
-        } */
+    if (uid)
+      this.memberProfile = this.profileService.getProfile(uid);
   }
 
   mailClick() {

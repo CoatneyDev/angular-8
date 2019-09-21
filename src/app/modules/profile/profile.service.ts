@@ -19,6 +19,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ProfileService {
 
+
   public MemberUpdated: Subject<Member> = new Subject<Member>();
 
   public members: Member[] = [];
@@ -39,6 +40,39 @@ export class ProfileService {
     this.getProfiles();
     this.initProfile();
 
+  }
+
+  dummyMember(): MemberInterface {
+    return {
+      id: '',
+      uid: '',
+      verified: false,
+      user: {
+        name: '',
+        email: '',
+        mobile: ''
+      },
+      profile: {
+        displayName: '',
+        photo: '',
+        bio: '',
+        favor: 0,
+        folks: 0,
+        jobs: 0,
+        rating: 0.0
+      },
+      address: {
+        address1: '',
+        address2: '',
+        city: '',
+        state: '',
+        zipCode: '',
+        latitude: '',
+        longitude: '',
+
+      }
+
+    };
   }
 
   memberFactory(usr: firebase.User): MemberInterface {

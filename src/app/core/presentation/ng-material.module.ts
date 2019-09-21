@@ -17,11 +17,9 @@ import {
   MatDialogModule,
   MatCardModule,
   MatTooltipModule,
-  /*
-
   MatOptionModule,
   MatSelectModule
-  */
+
 }
   from '@angular/material';
 
@@ -45,11 +43,9 @@ import {
     MatCardModule,
     MatSidenavModule,
     MatTooltipModule,
-    /*
-     
     MatOptionModule,
     MatSelectModule
-    */
+
   ],
   exports: [
     MatButtonModule,
@@ -68,11 +64,9 @@ import {
     MatCardModule,
     MatSidenavModule,
     MatTooltipModule,
-    /*
-   
     MatOptionModule,
     MatSelectModule
-    */
+
   ]
 })
 export class NgMaterialModule { }
