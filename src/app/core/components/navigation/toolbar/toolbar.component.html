@@ -1,35 +1,43 @@
 <mat-toolbar color="primary">
-    <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.gt-xs>
 
-        <button mat-icon-button (click)="sidenavToggle($event)">
-            <mat-icon>menu</mat-icon>
-        </button>
-    </div>
-    <figure>
+    <figure fxHide.xs>
         <a class="nav-link" routerLink="/">
             <span class="logo__container">
 
-                <img class="logo" src="assets/logo.svg">
+                <img class="logo" src="assets/logo.png">
             </span>
         </a>
     </figure>
-    <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end">
 
-        <ul fxLayout fxLayoutGap="10px" class="navigation__list">
+        <div class="signup__form">
+            <form (ngSubmit)="onSubmitSignup(fm)" #fm="ngForm">
+                <div class="search-bar field has-addons">
 
-            <li *ngIf="!(isAuth$ | async)" class="navigation__list--item"><a routerLink="/login"
-                    class="nav-link">Login</a></li>
-            <li *ngIf="!(isAuth$ | async)" class="navigation__list--item"><a routerLink="/signup"
-                    class="nav-link">Signup</a></li>
-            <li *ngIf="isAuth$ | async" class="navigation__list--item"><a routerLink="/dashboard/{{username}}"
-                    style="cursor:pointer;" class="nav-link">Welcome, {{username}}</a>
-            </li>
-            <li *ngIf="isAuth$ | async" class="navigation__list--item"><a (click)="onLogout($event)"
-                    style="cursor:pointer;" class="nav-link">Logout</a>
-            </li>
-        </ul>
+                    <div class="search-bar__text control">
+                        <input type="email" ngModel
+                            class="search-bar__text--input input is-rounded is-large is-primary has-text-danger has-icons-left has-icons-right"
+                            placeholder="Subscribe for updates!" id="email" name="email" required>
 
-        <!--coatneydev-dropdown></coatneydev-dropdown-->
+                    </div>
+                    <div class="search-bar__button control">
+
+                        <button class="search-bar__button--link button is-rounded is-large is-primary" type="submit"
+                            [disabled]="!fm.valid">
+                            <span class="search-bar__button--icon-container icon is-small is-right">
+                                <fa-icon icon="paper-plane" class="has-text-white is-small is-right" aria-hidden="true">
+                                </fa-icon>
+
+
+                            </span>
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <a href="{{ sponsorshipLink }}" target="_blank" mat-button>BECOME A SPONSOR</a>
+
 
 
     </div>

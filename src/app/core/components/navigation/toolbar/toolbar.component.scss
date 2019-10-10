@@ -1,7 +1,7 @@
 .logo {
    color: white;
    fill: white;
-   width: 10rem;
+   height: 50px;
 }
 
 .navigation__list {
@@ -26,4 +26,10 @@
 
 mat-icon {
     color: white;
+}
+
+mat-toolbar {
+    position: fixed;
+    top: 0;
+    z-index: 10000;
 }

@@ -171,7 +171,7 @@ export class AuthenticationService {
 
     }
     else {
-      this.route.navigate(['/login']);
+      //this.route.navigate(['/login']);
     }
 
   }

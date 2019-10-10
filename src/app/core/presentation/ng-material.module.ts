@@ -18,7 +18,9 @@ import {
   MatCardModule,
   MatTooltipModule,
   MatOptionModule,
-  MatSelectModule
+  MatRadioModule,
+  MatSelectModule,
+  MatStepperModule,
 
 }
   from '@angular/material';
@@ -44,7 +46,9 @@ import {
     MatSidenavModule,
     MatTooltipModule,
     MatOptionModule,
-    MatSelectModule
+    MatRadioModule,
+    MatSelectModule,
+    MatStepperModule,
 
   ],
   exports: [
@@ -65,7 +69,9 @@ import {
     MatSidenavModule,
     MatTooltipModule,
     MatOptionModule,
-    MatSelectModule
+    MatRadioModule,
+    MatSelectModule,
+    MatStepperModule,
 
   ]
 })

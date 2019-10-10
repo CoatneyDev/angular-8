@@ -1,52 +1,27 @@
-import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { Store } from '@ngrx/store';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import * as fromRoot from '../../../../app.reducer';
-import { AuthenticationService } from 'src/app/modules/authentication/authentication.service';
-import { ProfileService } from 'src/app/modules/profile/profile.service';
-import { Member } from 'src/app/core/models/member';
+import { environment } from 'src/environments/environment.prod';
+import { NgForm } from '@angular/forms';
+import { FirestoreService } from 'src/app/core/services/firestore.service';
 
 @Component({
   selector: 'coatneydev-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']
 })
-export class ToolbarComponent implements OnInit, OnDestroy {
+export class ToolbarComponent implements OnInit {
 
-  @Output() memberChanged: Subscription;
   @Output() toggleSideNav: EventEmitter<boolean> = new EventEmitter();
-  isAuth$: Observable<boolean>;
+
   sideNavOpen: boolean = false;
   username: string = "guest";
+  sponsorshipLink = '';
 
-  constructor(
-    private store: Store<fromRoot.State>,
-    private authService: AuthenticationService,
-    private profileService: ProfileService
-  ) { }
+  constructor(private db: FirestoreService) { }
 
 
   ngOnInit() {
-    this.isAuth$ = this.store.select(fromRoot.getIsAuthenticated);
-
-    this.memberChanged = this.profileService.MemberUpdated.subscribe(
-      (member: Member) => {
-        this.username = member.user.name;
-
-      }
-    );
-
-  }
-
-
-  ngOnDestroy() {
-    this.memberChanged.unsubscribe();
-  }
-
-  updateUsername(): string {
-
-    return this.profileService.thisMember.user.name;
+    this.sponsorshipLink = environment.sponsorshipLink;
   }
 
   sidenavToggle(event: Event) {
@@ -54,9 +29,15 @@ export class ToolbarComponent implements OnInit, OnDestroy {
     this.toggleSideNav.emit(this.sideNavOpen);
   }
 
+  onSubmitSignup(form: NgForm) {
+    const value = form.value;
 
-  onLogout(event: Event) {
-    this.authService.logout();
+    // Get the users email
+    this.db.createNewletterSub('anonymous', value.email, 'subscriber');
+
+    // Reset form
+    form.resetForm();
+
   }
 
 }

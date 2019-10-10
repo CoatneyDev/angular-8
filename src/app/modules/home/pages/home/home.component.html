@@ -1,53 +1,470 @@
-<section class="profile-settings__form">
-    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #loginForm="ngForm"
-        (ngSubmit)="onSubmit(loginForm)">
-        <mat-form-field class="example-full-width">
-            <input matInput #bio maxlength="256" placeholder="Bio">
-            <mat-hint align="start" color="accent"><strong>Don't disclose personal info</strong> </mat-hint>
-            <mat-hint align="end" color="accent">{{bio.value.length}} / 256</mat-hint>
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Tools">
+<coatneydev-navigation></coatneydev-navigation>
+<header class="header">
 
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>State</mat-label>
-            <mat-select>
-                <mat-option>None</mat-option>
-                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Account Type:</mat-label>
-            <mat-select name="accountType" required>
-                <mat-option>--</mat-option>
-                <mat-option>Employer</mat-option>
-                <mat-option>Employee</mat-option>
-            </mat-select>
+    <div class="signup">
+        <div class="copy">
+            <h1 class="copy__header heading-primary" fxHide.xs>A Better Way To Locate Work</h1>
+            <h3 class="copy__subheader heading-tertiary" fxHide.sm>WorkGnome Job Hub</h3>
+            <p class="copy__text paragraph">
+                <strong>WorkGnome<ng-container *ngIf="trademarked">™</ng-container></strong> is dedicated to <em>Central
+                    Valley</em> families
+                struggling to locate work,
+                especially in situations where traditional
+                job seeking/finding is difficult. </p>
 
-        </mat-form-field>
-        <mat-form-field>
-            <input type="email" matInput placeholder="Your Email" ngModel name="email" email required
-                #emailInput="ngModel">
 
-            <mat-error *ngIf="emailInput.hasError('required')">Field must not be empty.</mat-error>
-            <mat-error *ngIf="!emailInput.hasError('required')">E-mail is invalid.</mat-error>
-        </mat-form-field>
+            <p class="copy__text paragraph" fxHide.sm>
+                We are in the research
+                and development phase looking for community support.
+                Sign-up to our
+                <strong>Newsletter</strong>, <strong>Take Our Survey</strong> or <strong>Become a Sponsor</strong>.
+            </p>
+        </div>
+        <div class="signup__form" fxHide.xs fxHide.sm>
+            <form (ngSubmit)="onSubmitSignup(fm)" #fm="ngForm">
+                <div class="search-bar field has-addons">
 
-        <mat-form-field>
-            <input matInput placeholder="Mobile" name="mobile" id="mobile" ngModel required>
+                    <div class="search-bar__text control">
+                        <input type="email" ngModel
+                            class="search-bar__text--input input is-rounded is-large is-primary has-text-danger has-icons-left has-icons-right"
+                            placeholder="Subscribe for updates!" id="email" name="email" required>
 
-            <mat-error>This is an error</mat-error>
-        </mat-form-field>
+                    </div>
+                    <div class="search-bar__button control">
 
-        <mat-form-field>
-            <input matInput placeholder="Zipcode" name="zipcode" id="zipcode" ngModel required>
+                        <button class="search-bar__button--link button is-rounded is-large is-primary" type="submit"
+                            [disabled]="!fm.valid">
+                            <span class="search-bar__button--icon-container icon is-small is-right">
+                                <fa-icon icon="paper-plane" class="has-text-white is-small is-right" aria-hidden="true">
+                                </fa-icon>
 
-            <mat-error>This is an error</mat-error>
-        </mat-form-field>
 
-        <button *ngIf="!(isLoading$ | async)" type="submit" mat-raised-button color="primary"
-            [disabled]="loginForm.invalid">Submit</button>
-        <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
-    </form>
-</section>
+                            </span>
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+    <div class="video">
+
+        <div class="video__content">
+            <div class="videoWrapper">
+                <iframe width="560" height="349" src="https://www.youtube.com/embed/tuQLIPwL28U" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="video__social-links">
+                <a href="https://twitter.com/gnome_work" target="_blank" role="link"><img src="assets/twitter.png"
+                        alt="Twitter Link" role="img" /></a>
+                <a href="https://www.facebook.com/WorkGnome-124445345625132" target="_blank" role="link"><img
+                        src="assets/facebook.png" alt="Facebook Link" role="img" /></a>
+                <a href="https://www.youtube.com/channel/UCga0iSaxDIGI3i8ORngxtaw" target="_blank" role="link"><img
+                        src="assets/youtube.png" alt="YouTube Link" role="img" /></a>
+                <a href="https://www.linkedin.com/company/workgnome" target="_blank" role="link"><img
+                        src="assets/linkedin.png" alt="LinkedIn Link" role="img" /></a>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<main>
+    <section class="section-about">
+        <div class="u-center-text u-margin-bottom-big">
+            <h2 class="heading-secondary">
+                A Better Job Search
+            </h2>
+        </div>
+
+        <div class="row">
+            <div class="col-1-of-2">
+                <h3 class="heading-tertiary u-margin-bottom-small">Communications Platform</h3>
+                <p class="paragraph">
+                    Our software will improve upon conventional designs by giving communities
+                    a place to post jobs and share resources. WorkGnome communications platform
+                    is a streamlined model that lets you use your mobile phone just
+                    like you would with a friend.
+                </p>
+
+                <h3 class="heading-tertiary u-margin-bottom-small">Community Feedback</h3>
+                <p class="paragraph">
+                    WorkGnome
+                    understands that being in-touch with the folks you serve is key to good
+                    customer service. We'll gladly hear out our members, in fact we're gonna
+                    make it a regular part of the whole <em>community</em> concept.
+                </p>
+
+                <a href="{{ sponsorshipLink }}" target="_blank" class="btn-text">Become A Sponsor &rarr;</a>
+            </div>
+            <div class="col-1-of-2">
+                <div class="composition">
+
+                    <img srcset="assets/nat-1.jpg 300w, assets/nat-1-large.jpg 1000w"
+                        sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 1"
+                        class="composition__photo composition__photo--p1" src="assets/nat-1-large.jpg">
+
+                    <img srcset="assets/nat-2.jpg 300w, assets/nat-2-large.jpg 1000w"
+                        sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 2"
+                        class="composition__photo composition__photo--p2" src="assets/nat-2-large.jpg">
+
+                    <img srcset="assets/nat-3.jpg 300w, assets/nat-3-large.jpg 1000w"
+                        sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 3"
+                        class="composition__photo composition__photo--p3" src="assets/nat-3-large.jpg">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-features">
+
+        <div class="row">
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <!--i class="feature-box__icon icon-basic-world"></i-->
+                    <mat-icon class="feature-box__icon ">verified_user</mat-icon>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Qualified Listings</h3>
+                    <p class="feature-box__text">
+                        Get better results because we carefully curate posts and pull out the weeds so you only see the
+                        good stuff.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <!--i class="feature-box__icon icon-basic-compass"></i-->
+                    <mat-icon class="feature-box__icon ">outdoor_grill</mat-icon>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Community Hub</h3>
+                    <p class="feature-box__text">
+                        We take a holistic, community based approach to helping you find jobs and employees.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <!--i class="feature-box__icon icon-basic-map"></i-->
+                    <mat-icon class="feature-box__icon ">android</mat-icon>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Mobile Text</h3>
+                    <p class="feature-box__text">
+                        Our system doesn't require you to log in everytime you get a reply. Simply respond to the Txt!
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <!--i class="feature-box__icon icon-basic-heart"></i-->
+
+                    <mat-icon class="feature-box__icon ">house</mat-icon>
+
+
+                    <h3 class="heading-tertiary u-margin-bottom-small">Local Company</h3>
+                    <p class="feature-box__text">
+                        We want to see you succeed because you're our mothers, brothers, friends and neighbors.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-tours" id="section-tours">
+        <div class="u-center-text u-margin-bottom-big">
+            <h2 class="heading-secondary">
+                Pricing Plan
+            </h2>
+            <p class="paragraph">When we launch, this is our intended pricing. ( Subject to change )</p>
+        </div>
+
+        <div class="row">
+            <div class="col-1-of-3">
+                <div class="card">
+                    <div class="card__side card__side--front">
+                        <div class="card__picture card__picture--1">
+                            &nbsp;
+                        </div>
+                        <h4 class="card__heading">
+                            <span class="card__heading-span card__heading-span--1">Basic</span>
+                        </h4>
+                        <div class="card__details">
+                            <ul>
+                                <li>Unlimited Job Search</li>
+                                <li>1 Job Post Montly</li>
+                                <li>Basic Utilities</li>
+                                <li>Community Boards</li>
+                                <li>Job Advisor Access</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card__side card__side--back card__side--back-1">
+                        <div class="card__cta">
+                            <div class="card__price-box">
+                                <p class="card__price-only">Always</p>
+                                <p class="card__price-value">FREE</p>
+                            </div>
+                            <a href="{{ sponsorshipLink }}" target="_blank" class="btn btn--white">Become A Sponsor</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-1-of-3">
+                <div class="card">
+                    <div class="card__side card__side--front">
+                        <div class="card__picture card__picture--2">
+                            &nbsp;
+                        </div>
+                        <h4 class="card__heading">
+                            <span class="card__heading-span card__heading-span--2">Power User</span>
+                        </h4>
+                        <div class="card__details">
+                            <ul>
+                                <li>Unlimited Job Search</li>
+                                <li>Unlimited Job Posts</li>
+                                <li>Power Utilities</li>
+                                <li>Personal Boards</li>
+                                <li>VouchFor System</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="card__side card__side--back card__side--back-2">
+                        <div class="card__cta">
+                            <div class="card__price-box">
+                                <p class="card__price-only">Only</p>
+                                <p class="card__price-value">$9 / mo.</p>
+                            </div>
+                            <a href="{{ sponsorshipLink }}" target="_blank" class="btn btn--white">Become A Sponsor</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-1-of-3">
+                <div class="card">
+                    <div class="card__side card__side--front">
+                        <div class="card__picture card__picture--3">
+                            &nbsp;
+                        </div>
+                        <h4 class="card__heading">
+                            <span class="card__heading-span card__heading-span--3">Business</span>
+                        </h4>
+                        <div class="card__details">
+                            <ul>
+                                <li>1 Ad / Mo.</li>
+                                <li>Unlimited Job Posts</li>
+                                <li>Power Utilities</li>
+                                <li>Company Boards</li>
+                                <li>VouchFor System</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="card__side card__side--back card__side--back-3">
+                        <div class="card__cta">
+                            <div class="card__price-box">
+                                <p class="card__price-only">Only</p>
+                                <p class="card__price-value">$49 / mo.</p>
+                            </div>
+                            <a href="{{ sponsorshipLink }}" target="_blank" class="btn btn--white">Become A Sponsor</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="u-center-text u-margin-top-huge">
+            <a href="{{ sponsorshipLink }}" target="_blank" class="btn btn--green">Become A Sponsor</a>
+        </div>
+    </section>
+
+    <section class="section-stories">
+        <div class="bg-video">
+            <video class="bg-video__content" autoplay muted loop>
+                <source src="assets/video.mp4" type="video/mp4">
+                <source src="assets/video.webm" type="video/webm">
+                Your browser is not supported!
+            </video>
+        </div>
+
+        <div class="u-center-text u-margin-bottom-big">
+            <h2 class="heading-secondary">
+                Our Team:
+            </h2>
+        </div>
+
+        <div class="row">
+            <div class="story">
+                <figure class="story__shape">
+                    <img src="assets/nat-8.jpg" alt="Person on a tour" class="story__img">
+                    <figcaption class="story__caption">Paul Reyes, CEO</figcaption>
+                </figure>
+                <div class="story__text">
+                    <h3 class="heading-tertiary u-margin-bottom-small">Paul Reyes, CEO</h3>
+                    <p>
+                        Paul's expertise lies in the wealth management career space. Having worked
+                        for several of the biggest banking institutions with job titles such as financial
+                        advisor and mortgage banker he is well suited as CEO of WorkGnome.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="story">
+                <figure class="story__shape">
+                    <img src="assets/nat-9.jpg" alt="Person on a tour" class="story__img">
+                    <figcaption class="story__caption">Matthew Coatney, CIO</figcaption>
+                </figure>
+                <div class="story__text">
+                    <h3 class="heading-tertiary u-margin-bottom-small">Matthew Coatney, CIO</h3>
+                    <p>
+                        Straight out of college Matthew was hired by a successful startup to build custom systems
+                        including
+                        software, device apps and server systems. Later he worked on a Work Force Information System and
+                        was trained
+                        in labor statistics, giving him an edge in WorkGnome's niche.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="u-center-text u-margin-top-huge">
+            <a href="{{ sponsorshipLink }}" target="_blank" class="btn-text">Become A Sponsor &rarr;</a>
+        </div>
+    </section>
+
+    <section class="section-book">
+        <div class="row">
+            <div class="book">
+                <div class="book__form">
+
+                    <form (ngSubmit)="onSubmitSurvey(f, $event)" #f="ngForm" class="form">
+                        <div class="u-margin-bottom-medium">
+                            <h2 class="heading-secondary">
+                                A Brief Survey
+                            </h2>
+                            <p>( Average time 2m13s. )</p>
+                        </div>
+
+                        <div class="form__group">
+                            <input type="text" ngModel class="form__input" placeholder="Full name" id="name" name="name"
+                                required>
+                            <label for="name" class="form__label">Full name</label>
+                        </div>
+
+                        <div class="form__group ">
+                            <input type="email" ngModel class="form__input" placeholder="Email address" id="email"
+                                name="email" required>
+                            <label for="email" class="form__label">Email address</label>
+                        </div>
+
+                        <div class="form__group u-margin-bottom-medium">
+                            <div class="form__radio-group">
+                                <input type="radio" ngModel class="form__radio-input" id="job_seeker" value="job_seeker"
+                                    name="userType" required>
+                                <label for="job_seeker" class="form__radio-label">
+                                    <span class="form__radio-button"></span>
+                                    Job Seeker
+                                </label>
+                            </div>
+
+                            <div class="form__radio-group">
+                                <input type="radio" ngModel class="form__radio-input" id="job_provider"
+                                    value="job_provider" name="userType" required>
+                                <label for="job_provider" class="form__radio-label">
+                                    <span class="form__radio-button"></span>
+                                    Job Provider
+                                </label>
+                            </div>
+
+
+                        </div>
+
+                        <div class="form__group">
+                            <button class="btn btn--green" name="submit" id="submit" [disabled]="!f.valid">Next
+                                &rarr;</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__logo-box">
+
+        <picture class="footer__logo">
+            <source srcset="assets/stacked-logo-sm.png 1x, assets/stacked-logo-lg.png 2x" media="(max-width: 37.5em)">
+            <img srcset="assets/stacked-logo-sm 1x, assets/stacked-logo-lg.png 2x" alt="Full logo"
+                src="assets/stacked-logo-lg.png">
+        </picture>
+
+
+
+    </div>
+    <div class="row">
+        <div class="col-1-of-2">
+            <div class="footer__navigation">
+                <ul class="footer__list">
+
+
+
+
+
+                    <li class="footer__item"><a href="https://twitter.com/gnome_work" target="_blank" role="link"><img
+                                src="assets/twitter.png" alt="Twitter Link" role="img" /></a></li>
+                    <li class="footer__item"><a href="https://www.facebook.com/WorkGnome-124445345625132"
+                            target="_blank" role="link"><img src="assets/facebook.png" alt="Facebook Link"
+                                role="img" /></a></li>
+                    <li class="footer__item"><a href="https://www.youtube.com/channel/UCga0iSaxDIGI3i8ORngxtaw"
+                            target="_blank" role="link"><img src="assets/youtube.png" alt="YouTube Link"
+                                role="img" /></a></li>
+                    <li class="footer__item"><a href="https://www.linkedin.com/company/workgnome" target="_blank"
+                            role="link"><img src="assets/linkedin.png" alt="LinkedIn Link" role="img" /></a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-1-of-2">
+            <p class="footer__copyright">
+                <a href="#" class="footer__link">Work Gnome</a> will form as a Public Benefit Corporation for inspiring
+                economic
+                growth.
+                Copyright &copy; 2019.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<div [ngClass]="{'showSurvey': showSurvey}" class="popup" id="popup">
+
+    <div class="popup__content" [ngClass]="{'showSurveyContent': showSurvey}">
+        <div class="popup__center">
+            <a href="/" class="popup__close">&times;</a>
+            <h2 class="heading-secondary u-margin-bottom-small">WorkGnome Survey</h2>
+            <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please answer all questions:
+            </h3>
+            <p>( All information collected on this site is secure and private. Your <a href='#privacy'>privacy</a> is
+                our concern. )</p>
+
+        </div>
+
+
+        <coatneydev-survey-basic (surveySubmitted)="onSurveySubmitted($event)"></coatneydev-survey-basic>
+    </div>
+</div>

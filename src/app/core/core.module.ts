@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { StoreModule } from '@ngrx/store';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 
+// FA
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+library.add(fas, far);
+
 import { PipesModule } from './pipes/pipes.module';
-import { reducers } from '../app.reducer';
+
 import { NgMaterialModule } from './presentation/ng-material.module';
-import { AuthenticationModule } from '../modules/authentication/authentication.module';
+
 import { DynamicDialogModule } from '../core/modules/dynamic-dialog.module';
-import { LegalModule } from '../modules/legal/legal.module';
-import { ProfileModule } from '../modules/profile/profile.module';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -26,33 +30,33 @@ import { StopClickPropagationDirective } from './directives/stop-click-propagati
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterLinksComponent } from './components/footer/footer-links/footer-links.component';
 import { DropdownDirective } from './directives/dropdown.directive';
-import { LoggingService } from './services/logging.service';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { SurveyBasicComponent } from './components/survey-basic/survey-basic.component';
 
 @NgModule({
 
-  declarations: [HeaderComponent, FooterComponent, NavigationComponent, ToolbarComponent, SidenavComponent, StopClickPropagationDirective, ContactComponent, FooterLinksComponent, DropdownDirective, DropdownComponent],
+  declarations: [HeaderComponent, FooterComponent, NavigationComponent, ToolbarComponent, SidenavComponent, StopClickPropagationDirective, ContactComponent, FooterLinksComponent, DropdownDirective, DropdownComponent, SurveyBasicComponent],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireModule,
-    StoreModule.forRoot(reducers),
     NgMaterialModule,
-    AuthenticationModule,
-    ProfileModule,
     PipesModule,
     DynamicDialogModule,
-    LegalModule
+    FontAwesomeModule,
+
   ],
   exports: [
     CommonModule,
     NgMaterialModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     AngularFireModule,
     AngularFireAuthModule,
@@ -60,12 +64,11 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
     FooterComponent,
     NavigationComponent,
     SidenavComponent,
-    AuthenticationModule,
-    ProfileModule,
     PipesModule,
     DynamicDialogModule,
-    LegalModule,
-    StopClickPropagationDirective
+    StopClickPropagationDirective,
+    FontAwesomeModule,
+    SurveyBasicComponent,
 
   ],
   providers: [AngularFirestore]

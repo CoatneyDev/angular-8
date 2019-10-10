@@ -1,8 +1,13 @@
+
+.deleteme{
+  
+}
+
+
 @import '~@angular/material/theming';
 
 @include mat-core();
 
-/*****************/
 // define a real custom palette (using http://mcg.mbitson.com)
 
 $mat-emerald: (
@@ -93,7 +98,6 @@ $color-grey-dark-3: #333;
 $color-white: #fff;
 $color-black: #000;
 
-/*****************/
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker

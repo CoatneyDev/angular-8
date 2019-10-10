@@ -10,6 +10,7 @@ import { MessageInterface } from '../interfaces/message.interface';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Member } from '../models/member';
+import { SurveyInterface } from '../interfaces/survey.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,38 @@ export class FirestoreService {
     const colRef = this.db.collection('messages').doc(message.fromUID).collection('convos');
     colRef.add(message).catch(err => {
       console.log("Did you turn on Firestore Rules for /messages/{userId}/convos/{convoId} ?");
+      console.log(err);
+
+    });
+  }
+
+  public createNewletterSub(name: string, email: string, userType: string) {
+    console.log("creating newsletter... " + name + ' ' + email + ' ' + userType);
+
+    if (!name || !email || !userType) {
+      console.log("Missing info. Cannot create newsletter subscription.");
+      return;
+    }
+    const sub = { name, email, userType };
+    const colRef = this.db.collection('newsletter');
+    colRef.add(sub).catch(err => {
+      console.log("Did you turn on Firestore Rules for /newsletter ?");
+      console.log(err);
+
+    });
+  }
+
+  public createSurveyEntry(survey: SurveyInterface) {
+    console.log("creating survey " + survey);
+
+    if (!survey) {
+      console.log("Missing info. Cannot create survey entry.");
+      return;
+    }
+
+    const colRef = this.db.collection('surveys');
+    colRef.add(survey).catch(err => {
+      console.log("Did you turn on Firestore Rules for /survey ?");
       console.log(err);
 
     });

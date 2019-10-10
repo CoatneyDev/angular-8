@@ -1,0 +1,186 @@
+<mat-horizontal-stepper labelPosition="bottom" [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Usefulness</ng-template>
+            <mat-list>
+                <p class="paragraph">How useful do you think software that connects local people to local work would be?
+                </p>
+                <mat-radio-group
+                    aria-label="How useful do you think software that connects local people to local work would be?"
+                    formControlName="firstCtrl" required>
+                    <mat-radio-button class="paragraph" value="extremely useful">Extremely Useful</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="very useful">Very Useful</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="useful">Useful</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="barely useful">Barely Useful</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="not useful">Not Useful</mat-radio-button>
+                </mat-radio-group>
+
+            </mat-list>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>You</ng-template>
+            <mat-list>
+                <p class="paragraph">Would you use similar software?
+                </p>
+                <mat-radio-group aria-label="Would you use similar software?" formControlName="secondCtrl" required>
+                    <mat-radio-button class="paragraph" value="yes">Yes</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="no">No</mat-radio-button>
+                </mat-radio-group>
+
+            </mat-list>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel>Friend</ng-template>
+            <mat-list>
+                <p class="paragraph">Would you direct others to this kind of job networking software?
+                </p>
+                <mat-radio-group aria-label="Would you direct others to this kind of job networking software?"
+                    formControlName="thirdCtrl" required>
+                    <mat-radio-button class="paragraph" value="yes">Yes</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="no">No</mat-radio-button>
+                </mat-radio-group>
+
+            </mat-list>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+
+    <mat-step [stepControl]="fifthFormGroup">
+        <form [formGroup]="fifthFormGroup">
+            <ng-template matStepLabel>Value</ng-template>
+            <p class="paragraph">What would make such a software extremely valuable?
+            </p>
+            <mat-form-field>
+                <textarea matInput aria-label="What would make such a software extremely valuable?"
+                    placeholder="valuable" formControlName="fifthCtrl" rows="4" cols="50" required></textarea>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="sixthFormGroup">
+        <form [formGroup]="sixthFormGroup">
+            <ng-template matStepLabel>Problems</ng-template>
+            <p class="paragraph">What problems do you associate with this kind of software?</p>
+            <mat-form-field>
+                <textarea matInput aria-label="What problems do you associate with this kind of software?"
+                    placeholder="problems" formControlName="sixthCtrl" rows="4" cols="50" required></textarea>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="seventhFormGroup">
+        <form [formGroup]="seventhFormGroup">
+            <ng-template matStepLabel>Gender</ng-template>
+            <mat-list>
+                <p class="paragraph">What is your gender?
+                </p>
+                <mat-radio-group aria-label="What is your gender?" formControlName="seventhCtrl" required>
+                    <mat-radio-button class="paragraph" value="male">Male</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="female">Female</mat-radio-button>
+                </mat-radio-group>
+
+            </mat-list>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="eighthFormGroup">
+        <form [formGroup]="eighthFormGroup">
+            <ng-template matStepLabel>Age</ng-template>
+            <mat-list>
+                <p class="paragraph">What is your age?
+                </p>
+                <mat-radio-group aria-label="What is your age?" formControlName="eighthCtrl" required>
+                    <mat-radio-button class="paragraph" value="18 to 24">18 to 24</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="25 to 34">25 to 34</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="35 to 44">35 to 44</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="45 to 54">45 to 54</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="55 to 64">55 to 64</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="65 to 74">65 to 74</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="75 or older">75 or older</mat-radio-button>
+                </mat-radio-group>
+
+            </mat-list>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="ninthFormGroup">
+        <form [formGroup]="ninthFormGroup">
+            <ng-template matStepLabel>Race</ng-template>
+            <mat-list>
+                <p class="paragraph">Are you:
+                </p>
+                <mat-radio-group aria-label="What is your race?" formControlName="ninthCtrl" required>
+                    <mat-radio-button class="paragraph" value="white">White</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="black">Black</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="hispanic">Hispanic</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="asian">Asian</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="other">Other</mat-radio-button>
+
+                </mat-radio-group>
+
+            </mat-list>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="tenthFormGroup">
+        <form [formGroup]="tenthFormGroup">
+            <ng-template matStepLabel>Status</ng-template>
+            <mat-list>
+                <p class="paragraph">Are you a Community Leader, Counselor or Civic Worker?
+                </p>
+                <mat-radio-group aria-label="Are you a Community Leader, Counselor or Civic Worker?"
+                    formControlName="tenthCtrl" required>
+                    <mat-radio-button class="paragraph" value="yes">Yes</mat-radio-button>
+                    <mat-radio-button class="paragraph" value="no">No</mat-radio-button>
+                </mat-radio-group>
+
+            </mat-list>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+
+    <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p class="paragraph">Thank-you for taking this survey!</p>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+            <button type="submit" (click)="onSubmit()" mat-button>Submit</button>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>
